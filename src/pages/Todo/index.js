@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Keyboard, ScrollView, StyleSheet, Text, View } from "react-native";
 
-import TaskInputField from "./TaskInput/index";
-import TaskItem from "./TaskItem/index";
+import TaskInputField from "./TaskInput";
+import TaskItem from "./TaskItem";
 
 export default function TodoScreen() {
   const [tasks, setTasks] = useState([]);
