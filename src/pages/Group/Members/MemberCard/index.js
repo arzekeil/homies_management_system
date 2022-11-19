@@ -25,6 +25,6 @@ const styles = StyleSheet.create({
     marginLeft: "2.5%",
   },
   nameText: {
-    marginRight: "30%",
+    marginRight: "15%",
   },
 });

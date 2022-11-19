@@ -25,7 +25,10 @@ export default function Members() {
 
   const handleAddMember = () => {
     return;
-  }; 
+  };
+  const handleOpenMember = () => {
+    return;
+  };
 
   return (
     <View style={styles.container}>
@@ -33,16 +36,17 @@ export default function Members() {
         <Text style={styles.header}>In da house</Text>
         <TouchableOpacity onPress={() => handleAddMember()}>
           <View style={styles.button}>
-            <MaterialIcons name="add-box" size={48} color="black" />
+            <MaterialIcons name="add-box" size={48} color="tomato" />
           </View>
         </TouchableOpacity>
       </View>
       {membersList.map((memberData) => {
         return (
-          <MemberCard
-            memberFullName={memberData.memberFullName}
-            key={memberData.id}
-          />
+          <TouchableOpacity onPress={() => handleOpenMember()} key={memberData.id}>
+            <MemberCard
+              memberFullName={memberData.memberFullName}
+            />
+          </TouchableOpacity>
         );
       })}
     </View>

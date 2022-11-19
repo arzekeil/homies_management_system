@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Avatar } from "@react-native-material/core";
 
 export default function ProfileCard() {
@@ -6,10 +6,21 @@ export default function ProfileCard() {
     userFullName: "Arzekeil Deleon",
   };
 
+  const handleOpenProfile = () => {
+    return;
+  };
+
   return (
-    <View style={styles.container}>
-      <Avatar label={userData.userFullName} size={128} color={"white"} style={styles.item} />
-      <Text style={styles.item.text}>{userData.userFullName}</Text>
+    <View>
+      <TouchableOpacity onPress={() => handleOpenProfile()} style={styles.container}>
+        <Avatar
+          label={userData.userFullName}
+          size={128}
+          color={"white"}
+          style={styles.item}
+        />
+        <Text style={styles.item.text}>{userData.userFullName}</Text>
+      </TouchableOpacity>
     </View>
   );
 }
