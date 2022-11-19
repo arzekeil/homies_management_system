@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Avatar } from "@react-native-material/core";
+import { Profile } from "../../../../components/Profile";
 
 export default function MemberCard(props) {
-  const { memberFullName } = props;
+  const { id } = props;
 
-    return(
-        <View style={styles.container}>
-            <Avatar label={memberFullName} size={72} color={"lightgrey"} style={styles.avatar} />
-            <Text style={styles.nameText}>{memberFullName}</Text>
-        </View>
-    );
+  return (
+    <View style={styles.container}>
+      <Profile id={id} size={50} fullName />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -20,6 +20,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: "2.5%",
     paddingBottom: "2.5%",
+    borderWidth: 1,
+    bordercolor: "grey",
+    borderRadius: 20,
+    backgroundColor: "white",
   },
   avatar: {
     marginLeft: "2.5%",

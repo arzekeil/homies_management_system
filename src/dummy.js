@@ -28,7 +28,7 @@ export const dummyPayments = [
       {
         amount: 5.5,
         id: 3,
-        paid: true,
+        paid: false,
       },
     ],
     payer: 2,
@@ -39,13 +39,14 @@ export const dummyUsers = [
   null,
   {
     firstName: "arzekeil",
-    lastName: "d",
+    lastName: "deleon",
     icon: "battery-alert",
     color: "turquoise",
+    description: "i like lifting da weights and playing vball :D",
   },
   {
     firstName: "angela",
-    lastName: "w",
+    lastName: "wang",
     icon: "bedtime",
     color: "salmon",
   },

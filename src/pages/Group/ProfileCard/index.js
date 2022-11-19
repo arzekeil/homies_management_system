@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import { Avatar } from "@react-native-material/core";
 import { palette } from "../../../palette";
+import { Profile } from "../../../components/Profile";
+import { dummyUsers } from "../../../dummy";
 
 export default function ProfileCard() {
   const userData = {
-    userFullName: "Arzekeil Deleon",
+    id: 1,
   };
 
   const handleOpenProfile = () => {
@@ -17,25 +18,27 @@ export default function ProfileCard() {
         onPress={() => handleOpenProfile()}
         style={styles.container}
       >
-        <Avatar
-          label={userData.userFullName}
-          size={128}
-          color={"white"}
-          style={styles.item}
-        />
-        <Text style={styles.item.text}>{userData.userFullName}</Text>
+        <Profile id={userData.id} size={100} fullName />
       </TouchableOpacity>
+      <View style={styles.desc}>
+        <Text>{dummyUsers[userData.id].description}</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: palette.LIGHTGREY,
+    backgroundColor: "#FFFFFF",
+    borderColor: "grey",
+    borderWidth: 1,
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
+    wordWrap: "normal",
+    marginLeft: -20,
+    minHeight: "30%",
   },
   item: {
     margin: "5%",
@@ -44,4 +47,5 @@ const styles = StyleSheet.create({
       fontWeight: "600",
     },
   },
+  desc: { marginHorizontal: 40, marginTop: 20 },
 });

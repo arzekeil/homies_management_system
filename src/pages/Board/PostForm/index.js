@@ -8,17 +8,10 @@ import {
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-// import { palette } from "../../../palette";
-
 export default function PostForm({ navigation, route }) {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const id = route.params.id;
-//   setTitle(route.params.title);
-//   setDesc(route.params.description);
-//   const date = route.params.date;
-//   const authorId = route.params.authorId;
-//   const tags = route.params.tags;
 
   const handlePostSave = () => {
     navigation.navigate("BoardScreen");
@@ -46,19 +39,23 @@ export default function PostForm({ navigation, route }) {
         </TouchableOpacity>
       </View>
       <ScrollView style={styles.contentContainer}>
-        <TextInput
-          style={[styles.input, styles.title]}
-          onChangeText={setTitle}
-          placeholder="Post Title"
-          value={title}
-        />
-        <TextInput
-          style={[styles.input, styles.description]}
-          onChangeText={setDesc}
-          placeholder="Post Description"
-          value={desc}
-          multiline
-        />
+        <View style={styles.field}>
+          <TextInput
+            style={[styles.input, styles.title]}
+            onChangeText={setTitle}
+            placeholder="Post Title"
+            value={title}
+          />
+        </View>
+        <View style={styles.field}>
+          <TextInput
+            style={[styles.input, styles.description]}
+            onChangeText={setDesc}
+            placeholder="Post Description"
+            value={desc}
+            multiline
+          />
+        </View>
       </ScrollView>
     </View>
   );
@@ -69,6 +66,12 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     margin: 0,
+  },
+  field: {
+    backgroundColor: "white",
+    marginBottom: 20,
+    margin: 10,
+    borderRadius: 20,
   },
   buttonBar: {
     display: "flex",
