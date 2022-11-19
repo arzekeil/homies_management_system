@@ -1,11 +1,9 @@
 import { Text, View } from "react-native";
 
-function CostsScreen() {
+export default function GroupScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Home!</Text>
+      <Text>Group!</Text>
     </View>
   );
 }
-
-export default CostsScreen;
