@@ -1,14 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Avatar, Chip } from "@react-native-material/core";
+import { Profile } from "../../../components/Profile";
 
 export default function PostCard(props) {
-  const { postID, postTitle, postDate, postAuthor, postDescription, postTags } =
-    props;
+  const { id, title, date, authorId, description, tags } = props;
+  const parsedDate = new Date(date);
   return (
     <View style={styles.container}>
-      <Avatar label={postAuthor} size={36} color={"lightgrey"} />
+      <Profile id={authorId} avatarOnly />
       <View style={styles.tagContainer}>
-        {postTags.map((postTag) => {
+        {tags.map((postTag) => {
           return (
             <Chip
               label={postTag}
@@ -20,9 +21,9 @@ export default function PostCard(props) {
           );
         })}
       </View>
-      <Text style={styles.date}>{postDate}</Text>
-      <Text style={styles.header}>{postTitle}</Text>
-      <Text>{postDescription}</Text>
+      <Text style={styles.date}>{parsedDate.toDateString()}</Text>
+      <Text style={styles.header}>{title}</Text>
+      <Text>{description}</Text>
     </View>
   );
 }
@@ -38,6 +39,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
+    alignItems: "center",
   },
   header: {
     fontSize: 20,

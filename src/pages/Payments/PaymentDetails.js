@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import { Box, Text, Pressable, Flex } from "@react-native-material/core";
-import { ProfilePicture } from "../../components/ProfilePicture";
+import { Profile } from "../../components/Profile";
 import { MaterialIcons } from "@expo/vector-icons";
 import { palette } from "../../palette";
 
@@ -42,7 +42,7 @@ export default function PaymentDetails({ navigation, route }) {
           }}
         >
           <Text>- </Text>
-          <ProfilePicture id={data.id} />
+          <Profile id={data.id} />
           <Text> paid ${Number(data.amount).toFixed(2)}</Text>
         </Box>
       </Box>
@@ -60,7 +60,7 @@ export default function PaymentDetails({ navigation, route }) {
               }}
             >
               <Text>- </Text>
-              <ProfilePicture id={payee.id} />
+              <Profile id={payee.id} />
               <Text> owes ${Number(payee.amount).toFixed(2)}</Text>
             </Box>
           ))
@@ -80,7 +80,7 @@ export default function PaymentDetails({ navigation, route }) {
             }}
           >
             <Text>- </Text>
-            <ProfilePicture id={payee.id} />
+            <Profile id={payee.id} />
             <Text> paid ${Number(payee.amount).toFixed(2)}</Text>
           </Box>
         ))}

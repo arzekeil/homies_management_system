@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import { ProfilePicture } from "../../../components/ProfilePicture";
+import { Profile } from "../../../components/Profile";
 
 function TaskItem(props) {
   const { date, done, owner, title } = props;
@@ -18,7 +18,7 @@ function TaskItem(props) {
         </TouchableOpacity>
         <View style={styles.spacingContainer}>
           <Text style={done ? styles.taskComplete : styles.task}>{title} </Text>
-          <ProfilePicture id={owner} greyed={done ? true : false} />
+          <Profile id={owner} greyed={done ? true : false} />
         </View>
       </View>
     </View>

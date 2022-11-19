@@ -83,3 +83,22 @@ export const dummyTasks = [
     done: false,
   },
 ];
+
+export const dummyPosts = [
+  {
+    id: 1,
+    title: "Should we get a house pet?? OwO",
+    date: "2022-11-19",
+    authorId: 2,
+    description: "I think we should get a cat :3",
+    tags: ["discussion"],
+  },
+  {
+    id: 2,
+    title: "Should we buy an Xbox Series X and a brand new 4K TV :DDDD",
+    date: "2022-11-19",
+    authorId: 1,
+    description: "arzekul wanna knock some ppl over o.o",
+    tags: ["gaming", "xbox"],
+  },
+];

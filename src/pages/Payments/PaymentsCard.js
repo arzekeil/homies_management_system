@@ -1,5 +1,5 @@
 import { Box, Text, Flex } from "@react-native-material/core";
-import { ProfilePicture } from "../../components/ProfilePicture";
+import { Profile } from "../../components/Profile";
 
 export default function PaymentsCard(props) {
   const { payer, amount, date, title, payees } = props;
@@ -30,12 +30,12 @@ export default function PaymentsCard(props) {
             {payees
               .filter((payee) => !payee.paid)
               .map((payee) => (
-                <ProfilePicture key={payee.id} id={payee.id} />
+                <Profile key={payee.id} id={payee.id} />
               ))}
             {payees
               .filter((payee) => payee.paid)
               .map((payee) => (
-                <ProfilePicture key={payee.id} id={payee.id} greyed={true} />
+                <Profile key={payee.id} id={payee.id} greyed={true} />
               ))}
           </Flex>
         </Flex>
