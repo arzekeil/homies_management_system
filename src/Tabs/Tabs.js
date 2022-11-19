@@ -5,7 +5,7 @@ import TodoScreen from "../Todo/Todo-Tab";
 
 const Tab = createBottomTabNavigator();
 
-function MyTabs() {
+function BottomTabNavigation() {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Costs" component={CostsScreen} />
@@ -14,4 +14,4 @@ function MyTabs() {
   );
 }
 
-export default MyTabs;
+export default BottomTabNavigation;
