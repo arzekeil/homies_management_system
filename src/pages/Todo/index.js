@@ -19,7 +19,6 @@ export default function TodoScreen() {
   const deleteTask = (deleteIndex) => {
     const isDone = tasks[deleteIndex];
     tasks[deleteIndex].done = !isDone.done;
-    console.log(isDone)
   };
 
   const today = new Date();
@@ -35,9 +34,7 @@ export default function TodoScreen() {
           {lastDay.toDateString().slice(4, -5)})
         </Text>
 
-        {console.log(tasks)}
         {tasks.map((task, index) => {
-          console.log(task);
           return (
             <View key={index} style={styles.taskContainer}>
               <TaskItem

@@ -1,11 +1,15 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Avatar, Chip } from "@react-native-material/core";
-import { Profile } from "../../../components/Profile";
+import { Entypo } from "@expo/vector-icons";
 import { palette } from "../../../palette";
+import { Profile } from "../../../components/Profile";
 
 export default function PostCard(props) {
   const { id, title, date, authorId, description, tags } = props;
-  const parsedDate = new Date(date);
+
+  const handleOpenOptions = () => {
+    return;
+  };
   return (
     <View style={styles.container}>
       <Profile id={authorId} avatarOnly />
@@ -22,7 +26,20 @@ export default function PostCard(props) {
           );
         })}
       </View>
-      <Text style={styles.date}>{parsedDate.toDateString()}</Text>
+      <Text style={styles.date}>{date}</Text>
+      <TouchableOpacity
+        onPress={() => handleOpenOptions()}
+        style={styles.bottom}
+      >
+        <View>
+          <Entypo
+            name="dots-three-vertical"
+            size={16}
+            color="black"
+            style={styles.optionsIcon}
+          />
+        </View>
+      </TouchableOpacity>
       <Text style={styles.header}>{title}</Text>
       <Text>{description}</Text>
     </View>
@@ -55,9 +72,14 @@ const styles = StyleSheet.create({
   tagContainer: {
     flex: 1,
     flexDirection: "row",
+    flexWrap: "wrap",
   },
   tags: {
     marginTop: 2,
+    marginLeft: 5,
+  },
+  optionsIcon: {
+    marginTop: 6,
     marginLeft: 5,
   },
 });
