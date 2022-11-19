@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Avatar, Chip } from "@react-native-material/core";
 import { Profile } from "../../../components/Profile";
+import { palette } from "../../../palette";
 
 export default function PostCard(props) {
   const { id, title, date, authorId, description, tags } = props;
@@ -40,6 +41,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "space-between",
     alignItems: "center",
+    backgroundColor: palette.WHITE,
   },
   header: {
     fontSize: 20,

@@ -61,7 +61,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     margin: 20,
-    // backgroundColor: "#1E1A3C",
   },
   heading: {
     color: "#fff",

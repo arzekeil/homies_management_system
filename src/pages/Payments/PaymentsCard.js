@@ -1,5 +1,6 @@
 import { Box, Text, Flex } from "@react-native-material/core";
 import { Profile } from "../../components/Profile";
+import { palette } from "../../palette";
 
 export default function PaymentsCard(props) {
   const { payer, amount, date, title, payees } = props;
@@ -13,6 +14,9 @@ export default function PaymentsCard(props) {
       p={20}
       style={{
         backgroundColor: "#F9F9F9",
+        borderColor: palette.GREY,
+        borderWidth: 1,
+        borderRadius: 12,
       }}
     >
       <Flex fill direction="row">
