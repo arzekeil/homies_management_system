@@ -8,45 +8,53 @@ export default function PostCard(props) {
   const { id, title, date, authorId, description, tags } = props;
 
   const handleOpenOptions = () => {
-    return(
-      <View>
-        
-      </View>
-    );
+    return <View></View>;
   };
   return (
     <View style={styles.container}>
-      <Profile id={authorId} avatarOnly />
-      <View style={styles.tagContainer}>
-        {tags.map((postTag) => {
-          return (
-            <Chip
-              label={postTag}
-              variant="outlined"
-              key={postTag}
-              style={styles.tags}
-              color={palette.FLAME}
-            />
-          );
-        })}
-      </View>
-      <Text style={styles.date}>{date}</Text>
-      <TouchableOpacity
-        onPress={() => handleOpenOptions()}
-        style={styles.bottom}
-      >
-        <View>
-          <Entypo
-            name="dots-three-vertical"
-            size={16}
-            color="black"
-            style={styles.optionsIcon}
-          />
+      <View style={styles.row}>
+        <Profile id={authorId} />
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          <Text style={styles.date}>{date}</Text>
+          <TouchableOpacity
+            onPress={() => handleOpenOptions()}
+            style={styles.bottom}
+          >
+            <View>
+              <Entypo
+                name="dots-three-vertical"
+                size={16}
+                color="black"
+                style={styles.optionsIcon}
+              />
+            </View>
+          </TouchableOpacity>
         </View>
-      </TouchableOpacity>
+      </View>
       <View style={styles.textContainer}>
         <Text style={styles.header}>{title}</Text>
         <Text>{description}</Text>
+      </View>
+      <View style={styles.row}>
+        <View style={styles.tagContainer} paddingTop={10}>
+          {tags.map((postTag) => {
+            return (
+              <Chip
+                label={postTag}
+                variant="outlined"
+                key={postTag}
+                style={styles.tags}
+                color={palette.FLAME}
+              />
+            );
+          })}
+        </View>
       </View>
     </View>
   );
@@ -62,9 +70,15 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: palette.WHITE,
+  },
+  row: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
   },
   header: {
     fontSize: 20,
@@ -77,7 +91,7 @@ const styles = StyleSheet.create({
   tagContainer: {
     flex: 1,
     flexDirection: "row",
-    flexWrap: "wrap",
+    maxWidth: "50%",
   },
   tags: {
     marginTop: 0,
@@ -86,7 +100,6 @@ const styles = StyleSheet.create({
   optionsIcon: {
     marginTop: 0,
     marginLeft: 5,
-    paddingRight: 5,
   },
   textContainer: {
     marginLeft: 10,
