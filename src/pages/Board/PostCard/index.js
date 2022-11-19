@@ -8,7 +8,11 @@ export default function PostCard(props) {
   const { id, title, date, authorId, description, tags } = props;
 
   const handleOpenOptions = () => {
-    return;
+    return(
+      <View>
+        
+      </View>
+    );
   };
   return (
     <View style={styles.container}>

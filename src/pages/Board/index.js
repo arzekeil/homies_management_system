@@ -1,58 +1,21 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
-import { dummyPosts } from "../../dummy";
-import PostCard from "./PostCard";
-import { palette } from "../../palette";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const handleAddPost = () => {
-  return;
-};
-const handleOpenPost = () => {
-  return;
-};
+import BoardScreen from "./BoardScreen";
+import PostForm from "./PostForm";
 
-export default function BoardScreen() {
+const Stack = createNativeStackNavigator();
+
+export default function PaymentsScreen() {
   return (
-    <View style={styles.container}>
-      <View>
-        {dummyPosts.map((postData) => {
-          return (
-            <TouchableOpacity
-              onPress={() => handleOpenPost()}
-              key={postData.id}
-            >
-              <PostCard
-                id={postData.id}
-                title={postData.title}
-                date={postData.date}
-                authorId={postData.authorId}
-                description={postData.description}
-                tags={postData.tags}
-                style={styles.postContainer}
-              />
-            </TouchableOpacity>
-          );
-        })}
-      </View>
-      <TouchableOpacity onPress={() => handleAddPost()} style={styles.bottom}>
-        <View>
-          <MaterialIcons name="add-box" size={72} color={palette.FLAME} />
-        </View>
-      </TouchableOpacity>
-    </View>
+    <Stack.Navigator
+      initialRouteName="BoardScreen"
+      screenOptions={{
+        headerMode: "screen",
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="BoardScreen" component={BoardScreen} />
+      <Stack.Screen name="PostForm" component={PostForm} />
+    </Stack.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "column",
-    margin: 0,
-  },
-  postContainer: {},
-  bottom: {
-    bottom: 10,
-    right: 10,
-    position: "absolute",
-  },
-});
