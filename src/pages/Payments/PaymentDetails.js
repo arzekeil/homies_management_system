@@ -49,6 +49,7 @@ export default function PaymentDetails({ navigation, route }) {
         .filter((payee) => !payee.paid)
         .map((payee) => (
           <Box
+            key={payee.id}
             style={{
               display: "flex",
               flexDirection: "row",
@@ -65,6 +66,7 @@ export default function PaymentDetails({ navigation, route }) {
         .filter((payee) => payee.paid)
         .map((payee) => (
           <Box
+            key={payee.id}
             style={{
               display: "flex",
               flexDirection: "row",

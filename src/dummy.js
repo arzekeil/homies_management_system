@@ -51,7 +51,7 @@ export const dummyUsers = [
     firstName: "owo bot",
     lastName: "qwq",
     icon: "brush",
-    color: "mauve",
+    color: "purple",
   },
   {
     firstName: "testing",

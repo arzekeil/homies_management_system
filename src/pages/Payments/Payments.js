@@ -26,10 +26,7 @@ export default function Payments({ navigation }) {
           />
         </Pressable>
       ))}
-      {/* <Button
-        title="Go to Jane's profile"
-        onPress={() => navigation.navigate("PaymentDetails", { name: "Jane" })}
-      /> */}
+
     </View>
   );
 }
