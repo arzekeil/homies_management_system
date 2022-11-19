@@ -21,7 +21,7 @@ export default function PostCard(props) {
               variant="outlined"
               key={postTag}
               style={styles.tags}
-              color="tomato"
+              color={palette.FLAME}
             />
           );
         })}

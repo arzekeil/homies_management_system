@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { dummyPosts } from "../../dummy";
 import PostCard from "./PostCard";
+import { palette } from "../../palette";
 
 const handleAddPost = () => {
   return;
@@ -35,7 +36,7 @@ export default function BoardScreen() {
       </View>
       <TouchableOpacity onPress={() => handleAddPost()} style={styles.bottom}>
         <View>
-          <MaterialIcons name="add-box" size={72} color="tomato" />
+          <MaterialIcons name="add-box" size={72} color={palette.FLAME} />
         </View>
       </TouchableOpacity>
     </View>
@@ -46,12 +47,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    margin: 20,
+    margin: 0,
   },
   postContainer: {},
   bottom: {
-    bottom: 20,
-    right: 20,
+    bottom: 10,
+    right: 10,
     position: "absolute",
   },
 });
