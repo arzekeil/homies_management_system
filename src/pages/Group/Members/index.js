@@ -2,6 +2,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
 import MemberCard from "./MemberCard";
+import { palette } from "../../../palette";
 
 export default function Members() {
   const membersList = [
@@ -36,7 +37,7 @@ export default function Members() {
         <Text style={styles.header}>In da house</Text>
         <TouchableOpacity onPress={() => handleAddMember()}>
           <View style={styles.button}>
-            <MaterialIcons name="add-box" size={48} color="tomato" />
+            <MaterialIcons name="add-box" size={48} color={palette.FLAME} />
           </View>
         </TouchableOpacity>
       </View>

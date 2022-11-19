@@ -31,7 +31,7 @@ export default function ProfileCard() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: palette.TUMBLEWEED,
+    backgroundColor: palette.LIGHTGREY,
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",

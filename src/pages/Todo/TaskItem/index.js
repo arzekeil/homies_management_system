@@ -28,7 +28,7 @@ function TaskItem(props) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    marginHorizontal: 20,
+    marginHorizontal: 0,
   },
   index: {
     color: "#fff",

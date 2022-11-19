@@ -101,4 +101,12 @@ export const dummyPosts = [
     description: "arzekul wanna knock some ppl over o.o",
     tags: ["gaming", "xbox"],
   },
+  {
+    id: 3,
+    title: "We go jim",
+    date: "2022-11-18",
+    authorId: 1,
+    description: "we need to go get big right now",
+    tags: [],
+  },
 ];
