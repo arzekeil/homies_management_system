@@ -5,24 +5,7 @@ import MemberCard from "./MemberCard";
 import { palette } from "../../../palette";
 
 export default function Members() {
-  const membersList = [
-    {
-      id: 1,
-      memberFullName: "Ryan Rodericks",
-    },
-    {
-      id: 2,
-      memberFullName: "Francois Caines",
-    },
-    {
-      id: 3,
-      memberFullName: "Cheston Halim",
-    },
-    {
-      id: 4,
-      memberFullName: "Danielle Banes",
-    },
-  ];
+  const membersList = [2, 3, 4];
 
   const handleAddMember = () => {
     return;
@@ -41,12 +24,10 @@ export default function Members() {
           </View>
         </TouchableOpacity>
       </View>
-      {membersList.map((memberData) => {
+      {membersList.map((id) => {
         return (
-          <TouchableOpacity onPress={() => handleOpenMember()} key={memberData.id}>
-            <MemberCard
-              memberFullName={memberData.memberFullName}
-            />
+          <TouchableOpacity onPress={() => handleOpenMember()} key={id}>
+            <MemberCard id={id} />
           </TouchableOpacity>
         );
       })}
