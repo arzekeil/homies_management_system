@@ -1,5 +1,6 @@
 import { Box, Text, Flex } from "@react-native-material/core";
-import { ProfilePicture } from "../../components/ProfilePicture";
+import { Profile } from "../../components/Profile";
+import { palette } from "../../palette";
 
 export default function PaymentsCard(props) {
   const { payer, amount, date, title, payees } = props;
@@ -13,6 +14,9 @@ export default function PaymentsCard(props) {
       p={20}
       style={{
         backgroundColor: "#F9F9F9",
+        borderColor: palette.GREY,
+        borderWidth: 1,
+        borderRadius: 12,
       }}
     >
       <Flex fill direction="row">
@@ -30,12 +34,12 @@ export default function PaymentsCard(props) {
             {payees
               .filter((payee) => !payee.paid)
               .map((payee) => (
-                <ProfilePicture key={payee.id} id={payee.id} />
+                <Profile key={payee.id} id={payee.id} />
               ))}
             {payees
               .filter((payee) => payee.paid)
               .map((payee) => (
-                <ProfilePicture key={payee.id} id={payee.id} greyed={true} />
+                <Profile key={payee.id} id={payee.id} greyed={true} />
               ))}
           </Flex>
         </Flex>

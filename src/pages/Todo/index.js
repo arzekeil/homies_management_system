@@ -1,11 +1,14 @@
-import React, { useState } from "react";
-import { Keyboard, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Text } from "@react-native-material/core";
+import React, { useEffect, useState } from "react";
+import { Keyboard, ScrollView, StyleSheet, View } from "react-native";
 
 import TaskInputField from "./TaskInput";
 import TaskItem from "./TaskItem";
 
+import { dummyTasks } from "../../dummy";
+
 export default function TodoScreen() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(dummyTasks);
 
   const addTask = (task) => {
     if (task == null) return;
@@ -14,18 +17,32 @@ export default function TodoScreen() {
   };
 
   const deleteTask = (deleteIndex) => {
-    setTasks(tasks.filter((value, index) => index != deleteIndex));
+    const isDone = tasks[deleteIndex];
+    tasks[deleteIndex].done = !isDone.done;
   };
+
+  const today = new Date();
+
+  const firstDay = new Date(today.setDate(today.getDate() - today.getDay()));
+  const lastDay = new Date(today.setDate(today.getDate() - today.getDay() + 6));
 
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
+        <Text variant="h5">
+          This week ({firstDay.toDateString().slice(4, -5)} -{" "}
+          {lastDay.toDateString().slice(4, -5)})
+        </Text>
+
         {tasks.map((task, index) => {
           return (
             <View key={index} style={styles.taskContainer}>
               <TaskItem
                 index={index + 1}
-                task={task}
+                title={task.title}
+                owner={task.owner}
+                date={task.date}
+                done={task.done}
                 deleteTask={() => deleteTask(index)}
               />
             </View>
@@ -40,7 +57,7 @@ export default function TodoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1E1A3C",
+    margin: 20,
   },
   heading: {
     color: "#fff",

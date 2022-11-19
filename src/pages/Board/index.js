@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-
+import { dummyPosts } from "../../dummy";
 import PostCard from "./PostCard";
 
 const handleAddPost = () => {
@@ -11,38 +11,22 @@ const handleOpenPost = () => {
 };
 
 export default function BoardScreen() {
-  const posts = [
-    {
-      postID: 1,
-      postTitle: "Should we get a house pet?? OwO",
-      postDate: new Date().toISOString().slice(0, 10),
-      postAuthor: "Angela Wang",
-      postDescription: "I think we should get a cat :3",
-      postTags: ["discussion"],
-    },
-    {
-      postID: 2,
-      postTitle: "Should we buy an Xbox Series X and a brand new 4K TV :DDDD",
-      postDate: new Date().toISOString().slice(0, 10),
-      postAuthor: "Angela Wang",
-      postDescription: "I just wanna play some games and run over some virtual citizens.",
-      postTags: ["gaming", "xbox"],
-    },
-  ];
-
   return (
     <View style={styles.container}>
       <View>
-        {posts.map((postData) => {
+        {dummyPosts.map((postData) => {
           return (
-            <TouchableOpacity onPress={() => handleOpenPost()} key={postData.postID}>
+            <TouchableOpacity
+              onPress={() => handleOpenPost()}
+              key={postData.id}
+            >
               <PostCard
-                postID={postData.postID}
-                postTitle={postData.postTitle}
-                postDate={postData.postDate}
-                postAuthor={postData.postAuthor}
-                postDescription={postData.postDescription}
-                postTags={postData.postTags}
+                id={postData.id}
+                title={postData.title}
+                date={postData.date}
+                authorId={postData.authorId}
+                description={postData.description}
+                tags={postData.tags}
                 style={styles.postContainer}
               />
             </TouchableOpacity>
@@ -62,6 +46,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
+    margin: 20,
   },
   postContainer: {},
   bottom: {

@@ -1,19 +1,20 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Avatar, Chip } from "@react-native-material/core";
-import { Entypo  } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
+import { palette } from "../../../palette";
+import { Profile } from "../../../components/Profile";
 
 export default function PostCard(props) {
-  const { postID, postTitle, postDate, postAuthor, postDescription, postTags } =
-    props;
+  const { id, title, date, authorId, description, tags } = props;
 
   const handleOpenOptions = () => {
     return;
   };
   return (
     <View style={styles.container}>
-      <Avatar label={postAuthor} size={36} color={"lightgrey"} />
+      <Profile id={authorId} avatarOnly />
       <View style={styles.tagContainer}>
-        {postTags.map((postTag) => {
+        {tags.map((postTag) => {
           return (
             <Chip
               label={postTag}
@@ -25,14 +26,22 @@ export default function PostCard(props) {
           );
         })}
       </View>
-      <Text style={styles.date}>{postDate}</Text>
-      <TouchableOpacity onPress={() => handleOpenOptions()} style={styles.bottom}>
+      <Text style={styles.date}>{date}</Text>
+      <TouchableOpacity
+        onPress={() => handleOpenOptions()}
+        style={styles.bottom}
+      >
         <View>
-          <Entypo name="dots-three-vertical" size={16} color="black" style={styles.optionsIcon}/>
+          <Entypo
+            name="dots-three-vertical"
+            size={16}
+            color="black"
+            style={styles.optionsIcon}
+          />
         </View>
       </TouchableOpacity>
-      <Text style={styles.header}>{postTitle}</Text>
-      <Text>{postDescription}</Text>
+      <Text style={styles.header}>{title}</Text>
+      <Text>{description}</Text>
     </View>
   );
 }
@@ -48,6 +57,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: palette.WHITE,
   },
   header: {
     fontSize: 20,
@@ -70,5 +81,5 @@ const styles = StyleSheet.create({
   optionsIcon: {
     marginTop: 6,
     marginLeft: 5,
-  }
+  },
 });

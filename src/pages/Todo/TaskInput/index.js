@@ -27,7 +27,7 @@ function TaskInputField(props) {
         onChangeText={(text) => setTask(text)}
         onSubmitEditing={() => handleAddTask(task)}
         placeholder={"Write a task"}
-        placeholderTextColor={"#fff"}
+        placeholderTextColor={"grey"}
       />
       <TouchableOpacity onPress={() => handleAddTask(task)}>
         <View style={styles.button}>
@@ -40,8 +40,8 @@ function TaskInputField(props) {
 
 const styles = StyleSheet.create({
   container: {
-    borderColor: "#fff",
-    backgroundColor: "#3E3364",
+    borderColor: "grey",
+    backgroundColor: "white",
     borderWidth: 1,
     marginHorizontal: 20,
     borderRadius: 12,
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     bottom: 20,
   },
   inputField: {
-    color: "#fff",
+    color: "grey",
     height: 50,
     flex: 1,
   },

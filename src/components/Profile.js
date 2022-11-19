@@ -2,8 +2,8 @@ import { dummyUsers } from "../dummy";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Avatar, Box, Text } from "@react-native-material/core";
 
-export function ProfilePicture(props) {
-  const { id, greyed } = props;
+export function Profile(props) {
+  const { id, greyed, avatarOnly } = props;
   return (
     <Box
       style={{
@@ -24,9 +24,13 @@ export function ProfilePicture(props) {
           />
         )}
       />
-      <Text color={greyed ? "#DBDBDB" : "black"}>
-        {dummyUsers[id].firstName}
-      </Text>
+      {avatarOnly ? (
+        <></>
+      ) : (
+        <Text color={greyed ? "#DBDBDB" : "black"}>
+          {dummyUsers[id].firstName}
+        </Text>
+      )}
     </Box>
   );
 }

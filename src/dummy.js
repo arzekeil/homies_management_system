@@ -1,4 +1,4 @@
-export const dummyData = [
+export const dummyPayments = [
   {
     id: 1,
     amount: 11.11,
@@ -8,10 +8,11 @@ export const dummyData = [
       {
         amount: 2.0,
         id: 2,
-        paid: false,
+        paid: true,
       },
     ],
     payer: 1,
+    complete: true,
   },
   {
     id: 2,
@@ -31,6 +32,7 @@ export const dummyData = [
       },
     ],
     payer: 2,
+    complete: false,
   },
 ];
 export const dummyUsers = [
@@ -58,5 +60,45 @@ export const dummyUsers = [
     lastName: "again",
     icon: "bug-report",
     color: "magenta",
+  },
+];
+
+export const dummyTasks = [
+  {
+    owner: 1,
+    date: "2022-11-19",
+    title: "garbage",
+    done: false,
+  },
+  {
+    owner: 2,
+    date: "2022-11-19",
+    title: "run errands",
+    done: true,
+  },
+  {
+    owner: 2,
+    date: "2022-11-19",
+    title: "do stuff",
+    done: false,
+  },
+];
+
+export const dummyPosts = [
+  {
+    id: 1,
+    title: "Should we get a house pet?? OwO",
+    date: "2022-11-19",
+    authorId: 2,
+    description: "I think we should get a cat :3",
+    tags: ["discussion"],
+  },
+  {
+    id: 2,
+    title: "Should we buy an Xbox Series X and a brand new 4K TV :DDDD",
+    date: "2022-11-19",
+    authorId: 1,
+    description: "arzekul wanna knock some ppl over o.o",
+    tags: ["gaming", "xbox"],
   },
 ];
