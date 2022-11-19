@@ -1,9 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Avatar, Chip } from "@react-native-material/core";
+import { Entypo  } from "@expo/vector-icons";
 
 export default function PostCard(props) {
   const { postID, postTitle, postDate, postAuthor, postDescription, postTags } =
     props;
+
+  const handleOpenOptions = () => {
+    return;
+  };
   return (
     <View style={styles.container}>
       <Avatar label={postAuthor} size={36} color={"lightgrey"} />
@@ -21,6 +26,11 @@ export default function PostCard(props) {
         })}
       </View>
       <Text style={styles.date}>{postDate}</Text>
+      <TouchableOpacity onPress={() => handleOpenOptions()} style={styles.bottom}>
+        <View>
+          <Entypo name="dots-three-vertical" size={16} color="black" style={styles.optionsIcon}/>
+        </View>
+      </TouchableOpacity>
       <Text style={styles.header}>{postTitle}</Text>
       <Text>{postDescription}</Text>
     </View>
@@ -51,9 +61,14 @@ const styles = StyleSheet.create({
   tagContainer: {
     flex: 1,
     flexDirection: "row",
+    flexWrap: "wrap",
   },
   tags: {
     marginTop: 2,
     marginLeft: 5,
   },
+  optionsIcon: {
+    marginTop: 6,
+    marginLeft: 5,
+  }
 });

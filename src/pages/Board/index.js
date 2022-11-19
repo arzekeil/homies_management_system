@@ -25,8 +25,8 @@ export default function BoardScreen() {
       postTitle: "Should we buy an Xbox Series X and a brand new 4K TV :DDDD",
       postDate: new Date().toISOString().slice(0, 10),
       postAuthor: "Angela Wang",
-      postDescription: "I think we should get a cat :3",
-      postTags: ["gaming", "xbox", ],
+      postDescription: "I just wanna play some games and run over some virtual citizens.",
+      postTags: ["gaming", "xbox"],
     },
   ];
 
