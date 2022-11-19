@@ -1,4 +1,4 @@
-import { dummyData, dummyUsers } from "../dummy";
+import { dummyUsers } from "../dummy";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Avatar, Box, Text } from "@react-native-material/core";
 

@@ -1,9 +1,6 @@
 import { View } from "react-native";
 import { Pressable, Text } from "@react-native-material/core";
 import PaymentsCard from "./PaymentsCard";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { NavigationContainer } from "@react-navigation/native";
 import { dummyData, dummyUsers } from "../../dummy";
 
 export default function Payments({ navigation }) {
@@ -26,7 +23,6 @@ export default function Payments({ navigation }) {
           />
         </Pressable>
       ))}
-
     </View>
   );
 }
