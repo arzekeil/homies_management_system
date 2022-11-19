@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import { Avatar, Chip } from "@react-native-material/core";
+import { Chip } from "@react-native-material/core";
 import { Entypo } from "@expo/vector-icons";
 import { palette } from "../../../palette";
 import { Profile } from "../../../components/Profile";
@@ -40,8 +40,10 @@ export default function PostCard(props) {
           />
         </View>
       </TouchableOpacity>
-      <Text style={styles.header}>{title}</Text>
-      <Text>{description}</Text>
+      <View style={styles.textContainer}>
+        <Text style={styles.header}>{title}</Text>
+        <Text>{description}</Text>
+      </View>
     </View>
   );
 }
@@ -68,18 +70,22 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "400",
   },
-
   tagContainer: {
     flex: 1,
     flexDirection: "row",
     flexWrap: "wrap",
   },
   tags: {
-    marginTop: 2,
+    marginTop: 0,
     marginLeft: 5,
   },
   optionsIcon: {
-    marginTop: 6,
+    marginTop: 0,
     marginLeft: 5,
+    paddingRight: 5,
+  },
+  textContainer: {
+    marginLeft: 10,
+    paddingRight: 5,
   },
 });
