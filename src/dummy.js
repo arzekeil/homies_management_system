@@ -1,4 +1,4 @@
-export const dummyData = [
+export const dummyPayments = [
   {
     id: 1,
     amount: 11.11,
@@ -8,10 +8,11 @@ export const dummyData = [
       {
         amount: 2.0,
         id: 2,
-        paid: false,
+        paid: true,
       },
     ],
     payer: 1,
+    complete: true,
   },
   {
     id: 2,
@@ -31,6 +32,7 @@ export const dummyData = [
       },
     ],
     payer: 2,
+    complete: false,
   },
 ];
 export const dummyUsers = [

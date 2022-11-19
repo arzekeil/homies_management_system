@@ -5,4 +5,5 @@ export const palette = {
   PALESILVER: "#D6CBC1",
   LIGHTGREY: "#CDD6D0",
   WHITE: "#FFFFFF",
+  GREY: "grey",
 };

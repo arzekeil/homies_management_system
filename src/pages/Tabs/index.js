@@ -29,7 +29,7 @@ function BottomTabNavigation() {
           return <MaterialIcons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: palette.FLAME,
-        tabBarInactiveTintColor: "grey",
+        tabBarInactiveTintColor: palette.GREY,
       })}
     >
       <Tab.Screen
