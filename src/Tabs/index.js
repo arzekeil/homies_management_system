@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 
-import CostsScreen from "../Splitwise/Splitwise-Tab";
-import TodoScreen from "../Todo/Todo-Tab";
+import CostsScreen from "../Splitwise/index";
+import TodoScreen from "../Todo/index";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,13 +14,13 @@ function BottomTabNavigation() {
           let iconName;
 
           if (route.name === 'Costs') {
-            iconName = 'dollar';
+            iconName = 'dollar-sign';
           } else if (route.name === 'Todo') {
             iconName = 'list';
           }
 
           // You can return any component that you like here!
-          return <FontAwesome name={iconName} size={size} color={color} />;
+          return <FontAwesome5 name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'gray',
