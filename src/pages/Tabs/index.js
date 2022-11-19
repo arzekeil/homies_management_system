@@ -32,10 +32,10 @@ function BottomTabNavigation() {
         tabBarInactiveTintColor: 'gray',
       })}
     >
-      <Tab.Screen name="Payments" component={PaymentsScreen} />
-      <Tab.Screen name="Todo" component={TodoScreen} />
-      <Tab.Screen name="Board" component={BoardScreen} />
-      <Tab.Screen name="Group" component={GroupScreen} />
+      <Tab.Screen name="Payments" component={PaymentsScreen} options={{ headerTitle: "Payments" }} />
+      <Tab.Screen name="Todo" component={TodoScreen} options={{ headerTitle: "Weekly Chores" }} />
+      <Tab.Screen name="Board" component={BoardScreen} options={{ headerTitle: "Discussion Board" }} />
+      <Tab.Screen name="Group" component={GroupScreen} options={{ headerTitle: "Group" }} />
     </Tab.Navigator>
   );
 }
