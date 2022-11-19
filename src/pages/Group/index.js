@@ -1,9 +1,24 @@
-import { Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+
+import ProfileCard from "./ProfileCard";
+import Members from "./Members";
 
 export default function GroupScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Group!</Text>
+    <View>
+      <ProfileCard />
+      <Members />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "red",
+    display: "flex",
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
