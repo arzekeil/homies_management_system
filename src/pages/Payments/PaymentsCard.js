@@ -3,6 +3,7 @@ import { Box, Text, Flex } from "@react-native-material/core";
 export default function PaymentsCard(props) {
   const { payer, amount, date, title, payees } = props;
   const parsedDate = new Date(date);
+  
   return (
     <Box w={"100%"} h={100} m={4} p={20} style={{ backgroundColor: "#DBDBDB" }}>
       <Flex fill direction="row">
@@ -18,7 +19,7 @@ export default function PaymentsCard(props) {
           </Box>
           <Flex direction="row" m={4}>
             {payees.map((payee) => (
-              <Box style={{ backgroundColor: "salmon" }} m={4}>
+              <Box key={payee.id} style={{ backgroundColor: "salmon" }} m={4}>
                 <Text>{payee.id}</Text>
               </Box>
             ))}
