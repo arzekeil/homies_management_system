@@ -62,3 +62,24 @@ export const dummyUsers = [
     color: "magenta",
   },
 ];
+
+export const dummyTasks = [
+  {
+    owner: 1,
+    date: "2022-11-19",
+    title: "garbage",
+    done: false,
+  },
+  {
+    owner: 2,
+    date: "2022-11-19",
+    title: "run errands",
+    done: true,
+  },
+  {
+    owner: 2,
+    date: "2022-11-19",
+    title: "do stuff",
+    done: false,
+  },
+];
