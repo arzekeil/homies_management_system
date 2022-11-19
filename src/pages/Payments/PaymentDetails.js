@@ -1,11 +1,5 @@
 import { View } from "react-native";
-import { Box, Pressable, Text } from "@react-native-material/core";
-import PaymentsCard from "./PaymentsCard";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { NavigationContainer } from "@react-navigation/native";
-import { dummyData, dummyUsers } from "../../dummy";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Box, Text } from "@react-native-material/core";
 import { ProfilePicture } from "../../components/ProfilePicture";
 
 export default function PaymentDetails({ navigation, route }) {
