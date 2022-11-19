@@ -29,11 +29,11 @@ export default function Members() {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Text>In da house</Text>
+      <View style={styles.containerHeader}>
+        <Text style={styles.header}>In da house</Text>
         <TouchableOpacity onPress={() => handleAddMember()}>
           <View style={styles.button}>
-            <MaterialIcons name="add-box" size={24} color="black" />
+            <MaterialIcons name="add-box" size={48} color="black" />
           </View>
         </TouchableOpacity>
       </View>
@@ -51,6 +51,22 @@ export default function Members() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "yellow",
+    paddingLeft: "7.5%",
+    paddingRight: "7.5%",
+  },
+  card: {
+    borderWidth: 5,
+    borderColor: "purple",
+  },
+  containerHeader: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingTop: 15,
+  },
+  header: {
+    fontSize: 20,
+    fontWeight: "600",
   },
 });

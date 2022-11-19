@@ -6,14 +6,25 @@ export default function MemberCard(props) {
 
     return(
         <View style={styles.container}>
-            <Avatar label={memberFullName} size={72} autoColor />
-            <Text>{memberFullName}</Text>
+            <Avatar label={memberFullName} size={72} color={"lightgrey"} style={styles.avatar} />
+            <Text style={styles.nameText}>{memberFullName}</Text>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
   container: {
-    
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: "2.5%",
+    paddingBottom: "2.5%",
+  },
+  avatar: {
+    marginLeft: "2.5%",
+  },
+  nameText: {
+    marginRight: "30%",
   },
 });

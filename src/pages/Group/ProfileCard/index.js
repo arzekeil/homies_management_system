@@ -8,14 +8,25 @@ export default function ProfileCard() {
 
   return (
     <View style={styles.container}>
-      <Avatar label={userData.userFullName} size={128} autoColor />
-      <Text>{userData.userFullName}</Text>
+      <Avatar label={userData.userFullName} size={128} color={"white"} style={styles.item} />
+      <Text style={styles.item.text}>{userData.userFullName}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "red",
+    backgroundColor: "tomato",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  item: {
+    margin: "5%",
+    text: {
+      fontSize: 20,
+      fontWeight: "600",
+    },
   },
 });
