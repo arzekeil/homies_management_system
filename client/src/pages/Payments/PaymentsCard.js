@@ -32,12 +32,12 @@ export default function PaymentsCard(props) {
           </Box>
           <Flex direction="row" m={2}>
             {payees
-              .filter((payee) => !payee.paid)
+              ?.filter((payee) => !payee.paid)
               .map((payee) => (
                 <Profile key={payee.id} id={payee.id} />
               ))}
             {payees
-              .filter((payee) => payee.paid)
+              ?.filter((payee) => payee.paid)
               .map((payee) => (
                 <Profile key={payee.id} id={payee.id} greyed={true} />
               ))}

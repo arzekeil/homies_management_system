@@ -18,7 +18,7 @@ class Todo(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
-    dueDate = Column(Date)
+    dueDate = Column(String)
     userId = Column(String, index=True)
     isCompleted = Column(Boolean)
 
@@ -28,7 +28,7 @@ class Post(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
-    date = Column(Date)
+    date = Column(String)
     userId = Column(Integer, index=True)
     description = Column(String)
 
@@ -39,7 +39,7 @@ class Payment(Base):
     id = Column(Integer, primary_key=True, index=True)
     amount = Column(Integer)
     title = Column(String)
-    date = Column(Date)
+    date = Column(String)
     transactionId = Column(Integer, index=True)
     userId = Column(Integer, index=True)
     paid = Column(Boolean)
@@ -48,7 +48,7 @@ class Payment(Base):
 class Transaction(Base):
     __tablename__ = "transactions"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, index=True, primary_key=True)
     transactionId = Column(Integer, index=True)
     userId = Column(Integer, index=True)
     amountOwed = Column(Float)

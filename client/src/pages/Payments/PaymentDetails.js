@@ -47,7 +47,7 @@ export default function PaymentDetails({ navigation, route }) {
         </Box>
       </Box>
       <Text style={{ marginTop: 10 }}>Pending</Text>
-      {data.payees.filter((payee) => !payee.paid).length > 0 ? (
+      {/* {data.payees.filter((payee) => !payee.paid).length > 0 ? (
         data.payees
           .filter((payee) => !payee.paid)
           .map((payee) => (
@@ -66,9 +66,9 @@ export default function PaymentDetails({ navigation, route }) {
           ))
       ) : (
         <Text> - All paid! 🎉 </Text>
-      )}
+      )} */}
       <Text style={{ marginTop: 10 }}>Paid</Text>
-      {data.payees
+      {/* {data.payees
         .filter((payee) => payee.paid)
         .map((payee) => (
           <Box
@@ -83,7 +83,7 @@ export default function PaymentDetails({ navigation, route }) {
             <Profile id={payee.id} />
             <Text> paid ${Number(payee.amount).toFixed(2)}</Text>
           </Box>
-        ))}
+        ))} */}
     </View>
   );
 }
