@@ -12,7 +12,6 @@ class User(Base):
     icon = Column(String, index=True)
     color = Column(String, index=True)
 
-
 class Todo(Base):
     __tablename__ = "todos"
 
@@ -22,7 +21,6 @@ class Todo(Base):
     userId = Column(String, index=True)
     isCompleted = Column(Boolean, index=True)
 
-
 class Post(Base):
     __tablename__ = "posts"
 
@@ -31,7 +29,6 @@ class Post(Base):
     date = Column(Date, index=True)
     userId = Column(Integer, index=True)
     description = Column(String, index=True)
-
 
 class Payment(Base):
     __tablename__ = "payments"
@@ -43,7 +40,6 @@ class Payment(Base):
     transactionId = Column(Integer, index=True)
     userId = Column(Integer, index=True)
     paid = Column(Boolean, index=True)
-
 
 class Transaction(Base):
     __tablename__ = "transactions"

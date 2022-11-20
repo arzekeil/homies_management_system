@@ -1,3 +1,2 @@
 python -m venv venv
-.\venv\scripts\activate
-pip install "fastapi[all]"
+pip install -r requirements.txt
