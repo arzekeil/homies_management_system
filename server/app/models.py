@@ -48,7 +48,8 @@ class Payment(Base):
 class Transaction(Base):
     __tablename__ = "transactions"
 
-    id = Column(Integer, index=True)
+    id = Column(Integer, primary_key=True, index=True)
+    transactionId = Column(Integer, index=True)
     userId = Column(Integer, index=True)
     amountOwed = Column(Float)
     paid = Column(Boolean)
