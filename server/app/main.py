@@ -1,7 +1,7 @@
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
-from . import crud, models, schemas
+from . import crud, models
 from .database import SessionLocal, engine
 
 models.Base.metadata.create_all(bind=engine)
@@ -17,37 +17,42 @@ def get_db():
     finally:
         db.close()
 
-
-@app.post("/users/", response_model=schemas.User)
-def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
-    db_user = crud.get_user_by_email(db, email=user.email)
-    if db_user:
-        raise HTTPException(status_code=400, detail="Email already registered")
-    return crud.create_user(db=db, user=user)
-
-
-@app.get("/users/", response_model=list[schemas.User])
-def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    users = crud.get_users(db, skip=skip, limit=limit)
-    return users
-
-
-@app.get("/users/{user_id}", response_model=schemas.User)
-def read_user(user_id: int, db: Session = Depends(get_db)):
-    db_user = crud.get_user(db, user_id=user_id)
-    if db_user is None:
-        raise HTTPException(status_code=404, detail="User not found")
-    return db_user
-
-
-@app.post("/users/{user_id}/items/", response_model=schemas.Item)
-def create_item_for_user(
-    user_id: int, item: schemas.ItemCreate, db: Session = Depends(get_db)
-):
-    return crud.create_user_item(db=db, item=item, user_id=user_id)
-
-
-@app.get("/items/", response_model=list[schemas.Item])
-def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    items = crud.get_items(db, skip=skip, limit=limit)
-    return items
+@app.get("/payments")
+def get_payments(db: Session = Depends(get_db)):
+    pass
+@app.get("/todos")
+def get_todos(db: Session = Depends(get_db)):
+    pass
+@app.get("/board_posts")
+def get_board_posts(db: Session = Depends(get_db)):
+    pass
+@app.get("/users")
+def get_users(db: Session = Depends(get_db)):
+    pass
+@app.post("payment")
+def post_payment(db: Session = Depends(get_db)):
+    pass
+@app.post("/todo")
+def post_todo(db: Session = Depends(get_db)):
+    pass
+@app.post("board_post")
+def post_board_post(db: Session = Depends(get_db)):
+    pass
+@app.post("/user")
+def post_user(db: Session = Depends(get_db)):
+    pass
+@app.patch("payment/{id}")
+def patch_payment(id, db: Session = Depends(get_db)):
+    pass
+@app.patch("todo/{id}")
+def patch_todo(id, db: Session = Depends(get_db)):
+    pass
+@app.patch("board_post/{id}")
+def patch_board_post(id, db: Session = Depends(get_db)):
+    pass
+@app.patch("user/{id}")
+def patch_user(id, db: Session = Depends(get_db)):
+    pass
+@app.delete("board_post/{id}")
+def delete_board_post(id, db: Session = Depends(get_db)):
+    pass
