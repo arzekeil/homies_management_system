@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:hackwestern_2022/src/post_detail_page.dart';
 import 'package:hackwestern_2022/src/post_form_page.dart';
 
@@ -10,6 +11,11 @@ class Board extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<Board> {
+  var url = Uri.https('www.googleapis.com', '/books/v1/volumes', {'q': '{http}'});
+  var response = http.get(url);
+  if (response.statusCode == 200) {
+    
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,6 +85,7 @@ class _MyWidgetState extends State<Board> {
               },
             ),
           );
+          getHttp();
         },
         backgroundColor: Colors.deepOrange.shade200,
         child: const Icon(Icons.add),
