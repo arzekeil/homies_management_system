@@ -1,37 +1,109 @@
 from sqlalchemy.orm import Session
 
-from . import models, schemas
+from . import models
 
 
-def get_user(db: Session, user_id: int):
-    return db.query(models.User).filter(models.User.id == user_id).first()
+def get_payments(db: Session):
+    return db.query(models.Payment).all()
 
 
-def get_user_by_email(db: Session, email: str):
-    return db.query(models.User).filter(models.User.email == email).first()
+def get_todos(db: Session):
+    return db.query(models.Todo).all()
 
 
-def get_users(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(models.User).offset(skip).limit(limit).all()
+def get_posts(db: Session):
+    return db.query(models.Post).all()
 
 
-def create_user(db: Session, user: schemas.UserCreate):
-    fake_hashed_password = user.password + "notreallyhashed"
-    db_user = models.User(email=user.email,
-                          hashed_password=fake_hashed_password)
-    db.add(db_user)
+def get_users(db: Session):
+    return db.query(models.User).all()
+
+
+def create_payment(db: Session, body):
+    payment = models.Payment(amount=body.amount,
+                             title=body.title,
+                             date=body.date,
+                             transactionId=body.transactionId,
+                             userId=body.userId,
+                             paid=body.paid)
+    db.add(payment)
     db.commit()
-    db.refresh(db_user)
-    return db_user
+    db.refresh(payment)
+    return payment
 
 
-def get_items(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(models.Item).offset(skip).limit(limit).all()
-
-
-def create_user_item(db: Session, item: schemas.ItemCreate, user_id: int):
-    db_item = models.Item(**item.dict(), owner_id=user_id)
-    db.add(db_item)
+def create_todo(db: Session, body):
+    todo = models.Todo(
+        title=body.title,
+        dueDate=body.dueDate,
+        userId=body.userId,
+        isCompleted=body.isCompleted,
+    )
+    db.add(todo)
     db.commit()
-    db.refresh(db_item)
-    return db_item
+    db.refresh(todo)
+    return todo
+
+
+def create_post(db: Session, body):
+    post = models.Post(
+        title=body.title,
+        date=body.date,
+        userId=body.userId,
+        description=body.description,
+    )
+    db.add(post)
+    db.commit()
+    db.refresh(post)
+    return post
+
+
+def create_user(db: Session, body):
+    user = models.User(
+        firstName=body.firstName,
+        lastName=body.lastName,
+        icon=body.icon,
+        color=body.color,
+    )
+    db.add(user)
+    db.commit()
+    db.refresh(user)
+    return user
+
+
+def update_payment(db: Session, body):
+    payment = models.User(id=body.id)
+    db.add(payment)
+    db.commit()
+    db.refresh(payment)
+    return payment
+
+
+def update_todo(db: Session, body):
+    todo = models.Todo(id=body.id)
+    db.add(todo)
+    db.commit()
+    db.refresh(todo)
+    return todo
+
+
+def update_post(db: Session, body):
+    post = models.User(id=body.id)
+    db.add(post)
+    db.commit()
+    db.refresh(post)
+    return post
+
+
+def update_user(db: Session, body):
+    user = models.User(id=body.id)
+    db.add(user)
+    db.commit()
+    db.refresh(user)
+    return user
+
+
+def delete_post(db: Session, body):
+    post = db.query().filter(models.Post.id == body.id).first()
+    db.delete(post)
+    db.commit()
