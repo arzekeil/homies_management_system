@@ -3,13 +3,12 @@ from sqlalchemy import Boolean, Column, Integer, String, Date, ForeignKey
 
 from .database import Base
 
-
 class User(Base):
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)
-    first_name = Column(String, index=True)
-    last_name = Column(String, index=True)
+    firstName = Column(String, index=True)
+    lastName = Column(String, index=True)
     icon = Column(String, index=True)
     color = Column(String, index=True)
 
@@ -18,9 +17,9 @@ class Todo(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
-    due_date = Column(Date, index=True)
-    assigned_to = Column(String, index=True)
-    is_completed = Column(Boolean, index=True)
+    dueDate = Column(Date, index=True)
+    userId = Column(String, index=True, ForeignKey=True)
+    isCompleted = Column(Boolean, index=True)
 
 class Post(Base):
     __tablename__ = "posts"
@@ -28,13 +27,22 @@ class Post(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
     date = Column(Date, index=True)
-    authorId = Column(Integer, index=True, ForeignKey=True)
+    userId = Column(Integer, index=True, ForeignKey=True)
     description = Column(String, index=True)
 
-#   id: 1,
-#     title: "Should we get a house pet?? OwO",
-#     date: "2022-11-19",
-#     authorId: 2,
-#     description: "I think we should get a cat :3",
-#     tags: ["discussion"],
-#   },
+class Payment(Base):
+    __tablename__ = "payments"
+
+    id = Column(Integer, primary_key=True, index=True)
+    amount = Column(Integer, index=True)
+    title = Column(String, index=True)
+    date = Column(Date, index=True)
+    transactionId = Column(Integer, index=True, ForeignKey=True)
+    userId = Column(Integer, index=True, ForeignKey=True)
+    paid = Column(Boolean, index=True)
+
+class Transaction(Base):
+    __tablename__ = "transactions"
+
+    id = Column(Integer, primary_key=True, index=True)
+    payerId = Column(Integer, index=True, ForeignKey=True)
