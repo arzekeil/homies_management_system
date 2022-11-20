@@ -1,7 +1,7 @@
-from sqlalchemy import Boolean, Column, Integer, String, Date, ForeignKey
-# from sqlalchemy.orm import relationship
+from sqlalchemy import Boolean, Column, Integer, String, Date
 
 from .database import Base
+
 
 class User(Base):
     __tablename__ = "users"
@@ -11,6 +11,7 @@ class User(Base):
     lastName = Column(String, index=True)
     icon = Column(String, index=True)
     color = Column(String, index=True)
+
 
 class Todo(Base):
     __tablename__ = "todos"
