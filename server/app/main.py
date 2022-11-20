@@ -1,4 +1,4 @@
-from fastapi import Depends, FastAPI, HTTPException
+from fastapi import Depends, FastAPI
 from sqlalchemy.orm import Session
 from . import crud, models
 from .database import SessionLocal, engine
@@ -78,6 +78,11 @@ def patch_todo(id: int, body: schemas.ToDo, db: Session = Depends(get_db)):
 @app.patch("/posts/{id}")
 def patch_post(id, body: schemas.Post, db: Session = Depends(get_db)):
     return crud.update_post(db, id, body)
+
+
+@app.patch("/users/{id}")
+def patch_users(id, body: schemas.User, db: Session = Depends(get_db)):
+    return crud.update_user(db, id, body)
 
 
 @app.delete("/posts/{id}")
