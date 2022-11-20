@@ -19,48 +19,53 @@ class _MyWidgetState extends State<Board> {
       ),
       body: Column(
         children: [
-          Center(
-            child: Card(
-              child: InkWell(
-                splashColor: Colors.blue.withAlpha(30),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) {
-                        return const PostDetail();
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+            child: Column(
+              children: [
+                Center(
+                  child: Card(
+                    child: InkWell(
+                      splashColor: Colors.blue.withAlpha(30),
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) {
+                              return const PostDetail();
+                            },
+                          ),
+                        );
                       },
+                      child: const ListTile(
+                        leading: Icon(Icons.person),
+                        title: Text('We go jim'),
+                        subtitle: Text('yessir'),
+                      ),
                     ),
-                  );
-                },
-                child: const ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text('We go jim'),
-                  subtitle:
-                      Text('yessir'),
+                  ),
                 ),
-              ),
-            ),
-          ),
-          Center(
-            child: Card(
-              child: InkWell(
-                splashColor: Colors.blue.withAlpha(30),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) {
-                        return const PostDetail();
+                Center(
+                  child: Card(
+                    child: InkWell(
+                      splashColor: Colors.blue.withAlpha(30),
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) {
+                              return const PostDetail();
+                            },
+                          ),
+                        );
                       },
+                      child: const ListTile(
+                        leading: Icon(Icons.person),
+                        title: Text('Gaming night with the bois'),
+                        subtitle: Text('Meeting at the couch at 5pm'),
+                      ),
                     ),
-                  );
-                },
-                child: const ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text('Gaming night with the bois'),
-                  subtitle:
-                      Text('Meeting at the couch at 5pm'),
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
         ],
