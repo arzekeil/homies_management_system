@@ -25,6 +25,7 @@ def create_payment(db: Session, body):
                              transactionId=body.transactionId,
                              userId=body.userId,
                              paid=body.paid)
+
     db.add(payment)
     db.commit()
     db.refresh(payment)

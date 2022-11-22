@@ -8,8 +8,49 @@ import TaskItem from "./TaskItem";
 import { dummyTasks } from "../../dummy";
 
 export default function TodoScreen() {
-  const [tasks, setTasks] = useState(dummyTasks);
+  const [newData, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const getData = async () => {
+      await fetch("http://10.0.2.2:8000/todos", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json);
+          setData(json);
+          setLoading(false);
+          return json;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    };
+    getData();
+  }, []);
+
+  const addNewTask = async () => {
+    await fetch("http://10.0.2.2:8000/todos", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+        return json;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   const addTask = (task) => {
     if (task == null) return;
     setTasks([...tasks, task]);
@@ -17,8 +58,8 @@ export default function TodoScreen() {
   };
 
   const deleteTask = (deleteIndex) => {
-    const isDone = tasks[deleteIndex];
-    tasks[deleteIndex].done = !isDone.done;
+    const isDone = newData[deleteIndex];
+    newData[deleteIndex].done = !isDone.done;
   };
 
   const today = new Date();
@@ -34,20 +75,21 @@ export default function TodoScreen() {
           {lastDay.toDateString().slice(4, -5)})
         </Text>
 
-        {tasks.map((task, index) => {
-          return (
-            <View key={index} style={styles.taskContainer}>
-              <TaskItem
-                index={index + 1}
-                title={task.title}
-                owner={task.owner}
-                date={task.date}
-                done={task.done}
-                deleteTask={() => deleteTask(index)}
-              />
-            </View>
-          );
-        })}
+        {!loading &&
+          newData.map((task, index) => {
+            return (
+              <View key={index} style={styles.taskContainer}>
+                <TaskItem
+                  index={index + 1}
+                  title={task.title}
+                  owner={task.userId}
+                  date={task.dueDate}
+                  done={task.isCompleted}
+                  deleteTask={() => deleteTask(index)}
+                />
+              </View>
+            );
+          })}
       </ScrollView>
       <TaskInputField addTask={addTask} />
     </View>
